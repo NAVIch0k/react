@@ -1,0 +1,46 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.dialogs_item{
+    padding: 10px 30px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    border-right:2px solid rgb(15, 221, 142) ;
+}
+.dialogs_item h2,ul{
+    margin: 0;
+}
+.dialog{
+    font-size: 18px;
+    line-height: 40px;
+}
+.dialogs_item .active{
+    color: gold;
+}
+.messages{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.message{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.message p{
+    border:2px solid rgb(184, 46, 202) ;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0;
+}
+.img{
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-03/thumbs/1614595643_34-p-smail-na-belom-fone-36.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
