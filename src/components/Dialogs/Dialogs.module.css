@@ -11,13 +11,9 @@
 .dialogs_item h2,ul{
     margin: 0;
 }
-.dialog{
-    font-size: 18px;
-    line-height: 40px;
-}
-.dialogs_item .active{
+/* .dialogs_item .active{
     color: gold;
-}
+} */
 .messages{
     padding: 10px;
     display: flex;

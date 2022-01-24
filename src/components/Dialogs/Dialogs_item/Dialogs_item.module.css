@@ -1,0 +1,7 @@
+.dialog{
+    font-size: 18px;
+    line-height: 40px;
+}
+.active{
+    color: gold;
+}

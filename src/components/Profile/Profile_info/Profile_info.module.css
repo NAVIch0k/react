@@ -1,0 +1,12 @@
+.content_img{
+    border-radius: 5px;
+    background-image: url(../../../img/bg.jpg);
+    background-size: cover;
+    width: 100vh;
+    height: 20vh;
+    background-position:0vh;
+    background-repeat: no-repeat;
+}
+.profile_info{
+    margin-bottom: 20px;
+}
