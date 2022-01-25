@@ -5,10 +5,8 @@ const Post=(props)=>{
     return(
         <div className={s.content_post}>
             <img src="http://cdn.onlinewebfonts.com/svg/download_159991.png"/>
-            {props.text}
-            <div>
-                <span>like {props.like}</span>
-            </div>
+            <p className={s.post_text}>{props.text}</p>
+            <span>like: {props.like}</span>
         </div>
     )
 }
