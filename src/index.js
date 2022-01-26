@@ -22,9 +22,15 @@ let messages = [
   { id: 6, message: 'My name is?' },
 ]
 
+let posts=[
+  {id: 1, message: 'How are you?', likes_count:122},
+  {id: 2, message: 'My project', likes_count:233},
+  {id: 3, message: 'Hello World', likes_count:92},
+]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App dialogs={dialogs} messages={messages}/>
+    <App dialogs={dialogs} messages={messages} posts={posts}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
