@@ -23,6 +23,13 @@ let state = {
       { id: 5, message: 'Between' },
       { id: 6, message: 'My name is?' },
     ]
+  },
+  navbar:{
+    navbar_friends:[
+      {name:"Leon"},
+      {name:"Kesadi"},
+      {name:"Adam"}
+    ]
   }
 }
 
