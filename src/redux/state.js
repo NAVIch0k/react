@@ -1,3 +1,5 @@
+import { render_tree } from "../render"
+
 let state = {
   profile_page: {
     posts: [
@@ -40,6 +42,7 @@ export let add_post=(post_message)=>{
     likes_count:100
   }
   state.profile_page.posts.push(new_post)
+  render_tree(state)
 }
 
 export default state;

@@ -6,7 +6,6 @@ import Post from './Posts/Post'
 
 
 const MyPost = (props) => {
-    console.log(props)
     let Posts_Element=props.posts.map(
         p=> <Post text={p.message} like={p.likes_count}/>
     
@@ -17,6 +16,7 @@ const MyPost = (props) => {
     let add_post=()=>{
         let text=new_post_element.current.value;
         props.add_post(text)
+        new_post_element.current.value = ""
     }
 
     return (
