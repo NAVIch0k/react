@@ -17,7 +17,7 @@ const App = (props) => {
       <div className='content'>
         <Routes>
           <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogs_page} />} />
-          <Route path='/profile/*' element={<Profile state={props.state.profile_page} />} />
+          <Route path='/profile/*' element={<Profile state={props.state.profile_page} profile_post={props.profile_post}/>} />
           <Route path='/news/*' element={<News />} />
           <Route path='/settings/*' element={<Settings />} />
           <Route path='/music/*' element={<Music />} />
@@ -26,6 +26,5 @@ const App = (props) => {
     </div>
   );
 }
-//ok
 
 export default App;
