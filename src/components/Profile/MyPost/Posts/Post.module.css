@@ -4,6 +4,7 @@
     grid-template-columns: 75px 1fr;
     gap: 5px;
     margin-bottom: 20px;
+    max-width: 500px;
 }
 .content_post img{
     width: 50px;

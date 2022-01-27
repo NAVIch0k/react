@@ -6,7 +6,8 @@ let state = {
       { id: 1, message: 'How are you?', likes_count: 122 },
       { id: 2, message: 'My project', likes_count: 233 },
       { id: 3, message: 'Hello World', likes_count: 92 }
-    ]
+    ],
+    new_post_text:'lol_hello'
   },
   dialogs_page: {
     dialogs: [
@@ -35,13 +36,19 @@ let state = {
   }
 }
 
-export let add_post=(post_message)=>{
+export let add_post=()=>{
   let new_post={
     id:4,
-    message: post_message,
+    message: state.profile_page.new_post_text,
     likes_count:100
   }
   state.profile_page.posts.push(new_post)
+  state.profile_page.new_post_text=''
+  render_tree(state)
+}
+
+export let update_new_post_text=(new_text)=>{
+  state.profile_page.new_post_text = new_text
   render_tree(state)
 }
 
