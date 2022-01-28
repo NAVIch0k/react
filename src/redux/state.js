@@ -25,7 +25,8 @@ let state = {
       { id: 4, message: 'NOO' },
       { id: 5, message: 'Between' },
       { id: 6, message: 'My name is?' },
-    ]
+    ],
+    new_message:"hello ivan"
   },
   navbar:{
     navbar_friends:[
@@ -49,6 +50,21 @@ export let add_post=()=>{
 
 export let update_new_post_text=(new_text)=>{
   state.profile_page.new_post_text = new_text
+  render_tree(state)
+}
+
+export let add_message=()=>{
+  let message={
+    id:7,
+    message: state.dialogs_page.new_message
+  }
+  state.dialogs_page.messages.push(message)
+  state.dialogs_page.new_message=""
+  render_tree(state)
+}
+
+export let update_new_message=(new_text)=>{
+  state.dialogs_page.new_message=new_text
   render_tree(state)
 }
 
