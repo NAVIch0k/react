@@ -1,4 +1,6 @@
-import { render_tree } from "../render"
+let render_tree=()=>{
+  
+}
 
 let state = {
   profile_page: {
@@ -37,7 +39,7 @@ let state = {
   }
 }
 
-export let add_post=()=>{
+export const add_post=()=>{
   let new_post={
     id:4,
     message: state.profile_page.new_post_text,
@@ -48,12 +50,12 @@ export let add_post=()=>{
   render_tree(state)
 }
 
-export let update_new_post_text=(new_text)=>{
+export const update_new_post_text=(new_text)=>{
   state.profile_page.new_post_text = new_text
   render_tree(state)
 }
 
-export let add_message=()=>{
+export const add_message=()=>{
   let message={
     id:7,
     message: state.dialogs_page.new_message
@@ -63,9 +65,13 @@ export let add_message=()=>{
   render_tree(state)
 }
 
-export let update_new_message=(new_text)=>{
+export const update_new_message=(new_text)=>{
   state.dialogs_page.new_message=new_text
   render_tree(state)
+}
+
+export const subscribe =(observer)=>{
+  render_tree=observer
 }
 
 export default state;
