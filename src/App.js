@@ -8,16 +8,16 @@ import { Route, Routes } from 'react-router-dom';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
-// https://app.mindmup.com/map/new/1580246240113
+
 const App = (props) => {
   return (
     <div className='page'>
       <Header />
-      <Navbar state={props.state.navbar} />
+      <Navbar nav_bar={props.state.navbar} />
       <div className='content'>
         <Routes>
-          <Route path='/dialogs/*' element={<Dialogs dialog_page={props.state.dialogs_page} dialogs_message={props.dialogs_massage} update_new_message={props.update_new_message}/>} />
-          <Route path='/profile/*' element={<Profile profile_page={props.state.profile_page} update_new_post_text={props.update_new_post_text} profile_post={props.profile_post}/>} />
+          <Route path='/dialogs/*' element={<Dialogs dialog_page={props.state.dialogs_page} add_meassage={props.add_message} update_new_message={props.update_new_message}/>} />
+          <Route path='/profile/*' element={<Profile profile_page={props.state.profile_page} update_new_post_text={props.update_new_post_text} profile_post={props.add_post}/>} />
           <Route path='/news/*' element={<News />} />
           <Route path='/settings/*' element={<Settings />} />
           <Route path='/music/*' element={<Music />} />
