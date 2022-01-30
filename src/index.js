@@ -10,7 +10,7 @@ let render_tree=(state)=>{
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App state={state} add_message={store.add_message.bind(store)} update_new_message={store.update_new_message.bind(store)} add_post={store.add_post.bind(store)} update_new_post_text={store.update_new_post_text.bind(store)}/>
+        <App state={state} dispatch={store.dispatch.bind(store)}/>
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

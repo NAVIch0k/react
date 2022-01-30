@@ -16,10 +16,10 @@ const MyPost = (props) => {
     
     let on_post_change=()=>{
         let text = new_post_element.current.value;
-        props.update_new_post_text(text)
+        props.dispatch({type:'UPDATE-NEW-POST-TEXT',new_text:text})
     }
     let add_post=()=>{
-        props.add_post()
+        props.dispatch({type:'ADD-POST'})
     }
     return (
         <div>
