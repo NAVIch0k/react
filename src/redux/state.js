@@ -1,3 +1,7 @@
+const ADD_POST='ADD-POST'
+const UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
+const ADD_MESSAGE='ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE='UPDATE-NEW-MESSAGE'
 let store = {
 
   _state: {
@@ -81,7 +85,7 @@ let store = {
   // },
 
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let new_post = {
         id: 4,
         message: this._state.profile_page.new_post_text,
@@ -90,10 +94,10 @@ let store = {
       this._state.profile_page.posts.push(new_post)
       this._state.profile_page.new_post_text = ''
       this._render_tree(this._state)
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profile_page.new_post_text = action.new_text
       this._render_tree(this._state)
-    } else if (action.type === 'ADD-MESSAGE') {
+    } else if (action.type === ADD_MESSAGE) {
       let message = {
         id: 7,
         message: this._state.dialogs_page.new_message
@@ -101,12 +105,26 @@ let store = {
       this._state.dialogs_page.messages.push(message)
       this._state.dialogs_page.new_message = ""
       this._render_tree(this._state)
-    } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+    } else if (action.type === UPDATE_NEW_MESSAGE) {
       this._state.dialogs_page.new_message = action.new_message
       this._render_tree(this._state)
     }
   }
-
+  
 }
+
+export const on_post_change_creater=(text)=>({
+      type:UPDATE_NEW_POST_TEXT,
+      new_text: text
+})
+
+export const add_post_creater=()=>({type:ADD_POST})
+
+export const add_message_creater=()=>({type:ADD_MESSAGE})
+
+export const on_message_change_creater=(text)=>({
+      type:UPDATE_NEW_MESSAGE,
+      new_message: text
+})
 
 export default store;
