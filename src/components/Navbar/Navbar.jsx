@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
+import store from '../../redux/redux_store';
 const Navbar = (props) => {
-
-    let nav_name=props.nav_bar.navbar_friends.map(
+    
+    // let nav_name=props.nav_bar.navbar_friends.map(
+    //     n => <p>{n.name}</p>
+    // )
+    let nav_name=store.getState().navbar.navbar_friends.map(
         n => <p>{n.name}</p>
     )
 

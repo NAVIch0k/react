@@ -13,11 +13,11 @@ const App = (props) => {
   return (
     <div className='page'>
       <Header />
-      <Navbar nav_bar={props.state.navbar} />
+      <Navbar />
       <div className='content'>
         <Routes>
-          <Route path='/dialogs/*' element={<Dialogs_cont store={props.store}/>} />
-          <Route path='/profile/*' element={<Profile store={props.store}/>} />
+          <Route path='/dialogs/*' element={<Dialogs_cont/>} />
+          <Route path='/profile/*' element={<Profile/>} />
           <Route path='/news/*' element={<News />} />
           <Route path='/settings/*' element={<Settings />} />
           <Route path='/music/*' element={<Music />} />
