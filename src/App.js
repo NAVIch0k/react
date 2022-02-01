@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs.jsx';
+import Dialogs_cont from './components/Dialogs/Dialogs_cont.jsx';
 import Header from './components/Header/Header.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Profile from './components/Profile/Profile.jsx';
@@ -16,8 +16,8 @@ const App = (props) => {
       <Navbar nav_bar={props.state.navbar} />
       <div className='content'>
         <Routes>
-          <Route path='/dialogs/*' element={<Dialogs dialog_page={props.state.dialog_page} dispatch={props.dispatch}/>} />
-          <Route path='/profile/*' element={<Profile profile_page={props.state.profile_page} dispatch={props.dispatch}/>} />
+          <Route path='/dialogs/*' element={<Dialogs_cont store={props.store}/>} />
+          <Route path='/profile/*' element={<Profile store={props.store}/>} />
           <Route path='/news/*' element={<News />} />
           <Route path='/settings/*' element={<Settings />} />
           <Route path='/music/*' element={<Music />} />
