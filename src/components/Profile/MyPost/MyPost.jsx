@@ -3,10 +3,8 @@ import s from './MyPost.module.css';
 import Post from './Posts/Post'
 
 const MyPost = (props) => {
-    console.log(props)
-    
     let Posts_Element=props.posts.map(
-        p=> <Post text={p.message} like={p.likes_count}/>
+        p=> <Post text={p.message} key={p.id} like={p.likes_count}/>
     
     )
     
