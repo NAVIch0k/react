@@ -2,19 +2,19 @@ import React from 'react';
 import './App.css';
 import Dialogs_cont from './components/Dialogs/Dialogs_cont.jsx';
 import Header from './components/Header/Header.jsx';
-import Navbar from './components/Navbar/Navbar.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import { Route, Routes } from 'react-router-dom';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Users_cont from './components/Users/Users_cont';
+import Navbar_cont from './components/Navbar/Navbar_cont';
 
 const App = (props) => {
   return (
     <div className='page'>
       <Header />
-      <Navbar />
+      <Navbar_cont />
       <div className='content'>
         <Routes>
           <Route path='/dialogs/*' element={<Dialogs_cont/>} />

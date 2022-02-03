@@ -1,13 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
-import store from '../../redux/redux_store';
 const Navbar = (props) => {
-    
-    // let nav_name=props.nav_bar.navbar_friends.map(
-    //     n => <p>{n.name}</p>
-    // )
-    let nav_name=store.getState().navbar.navbar_friends.map(
+    console.log(props)
+    let nav_name=props.friends.map(
         n => <p>{n.name}</p>
     )
 
@@ -18,6 +14,7 @@ const Navbar = (props) => {
             <NavLink to='/news' className={navData => (navData.isActive ? s.active : "")}>News</NavLink>
             <NavLink to='/music' className={navData => (navData.isActive ? s.active : "")}>Music</NavLink>
             <NavLink to='/settings' className={navData => (navData.isActive ? s.active : "")}>Settings</NavLink>
+            <NavLink to='/users' className={navData => (navData.isActive ? s.active : "")}>Users</NavLink>
             <h3>Friends</h3>
             <div className={s.nav_friends}>
                 <div className={s.nav_friend}>
