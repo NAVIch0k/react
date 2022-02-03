@@ -18,16 +18,18 @@ const Profile_reducer = (state=initial_state, action) => {
                 message: state.new_post_text,
                 likes_count: 100
             }
-            let new_state={...state}
-            new_state.posts = [...state.posts]
-            new_state.posts.push(new_post)
-            new_state.new_post_text = ''
-            return new_state;
+            return{
+                ...state,
+                new_post_text: '',
+                posts: [...state.posts,new_post]
+                
+            }
         }
         case UPDATE_NEW_POST_TEXT:{
-            let new_state={...state}
-            new_state.new_post_text = action.new_text
-            return new_state
+            return{
+                ...state,
+                new_post_text: action.new_text
+            }
         }    
         default:
             return state

@@ -23,22 +23,23 @@ let initial_state = {
 
 const Dialog_reducer = (state=initial_state, action) => {
 
-    let new_state={...state}
-
     switch (action.type) {
         case ADD_MESSAGE:{
             let message = {
                 id: 7,
                 message: state.new_message
             }
-            new_state.messages=[...state.messages]
-            new_state.messages.push(message)
-            new_state.new_message = ""
-            return new_state
+            return{
+                ...state,
+                new_message:"",
+                messages:[...state.messages,message]
+            }
         }
         case UPDATE_NEW_MESSAGE:{
-            new_state.new_message = action.new_message
-            return new_state
+            return{
+                ...state,
+                new_message: action.new_message
+            }
         }
         default:
             return state
