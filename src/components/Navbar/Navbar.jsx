@@ -2,11 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 const Navbar = (props) => {
-    console.log(props)
     let nav_name=props.friends.map(
         n => <p>{n.name}</p>
     )
-
+    let text=props.but
+    let click=(text)=>{
+        props.butclick(text)
+    }
     return (
         <nav className={s.nav}>
             <NavLink to='/profile' className={navData => (navData.isActive ? s.active : "")}>Profile</NavLink>
@@ -16,6 +18,7 @@ const Navbar = (props) => {
             <NavLink to='/settings' className={navData => (navData.isActive ? s.active : "")}>Settings</NavLink>
             <NavLink to='/users' className={navData => (navData.isActive ? s.active : "")}>Users</NavLink>
             <h3>Friends</h3>
+            <button onClick={click}>{text}</button>
             <div className={s.nav_friends}>
                 <div className={s.nav_friend}>
                     <div className={s.nav_friend_img}></div>
