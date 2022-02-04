@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './User.module.css'
+import User from './User/User';
+
 const Users = (props) => {
     if (props.users.length === 0) {
         props.set_users(
@@ -11,29 +13,12 @@ const Users = (props) => {
         )
     }
 
+
+    let viewUser = () => {
+        return props.users.map(u => <User key={u.id} u={u} unfollow={props.unfollow} folllow={props.follow} />)
+    }
     return (
-        <div>
-            {props.users.map(u => <div key={u.id}>
-                <span>
-                    <div>
-                        <img src={u.avatar} className={s.photo} />
-                    </div>
-                    <div>
-                        {u.followed ? <button onClick={() => { props.unfollow(u.id) }}>unfollow</button> : <button onClick={() => { props.follow(u.id) }}>follow</button>}
-                    </div>
-                </span>
-                <span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{u.location.country}</div>
-                        <div>{u.location.city}</div>
-                    </span>
-                </span>
-            </div>)}
-        </div>
+        viewUser()
     )
 }
 

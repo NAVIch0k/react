@@ -4,21 +4,11 @@ let initial_state = {
         { name: "Leon" },
         { name: "Kesadi" },
         { name: "Adam" }
-    ],
-    but:1
+    ]
 }
 
 const Navbar_reducer = (state=initial_state, action) => {
-    debugger
-    switch (action.type) {
-        case RENAME:
-            return{
-                ...state,
-                but: state.but+=1
-            }
-        default:
-            return state;
-    }
+    return state
 }
 export  const rename_AC=(text)=>({type:RENAME,text})
 export default Navbar_reducer

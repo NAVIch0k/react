@@ -22,7 +22,7 @@ let map_dispatch_to_props = (dispatch) => {
         }
     }
 }
-//49 time 38
+
 
 const Users_cont = connect(map_state_to_props, map_dispatch_to_props)(Users)
 
