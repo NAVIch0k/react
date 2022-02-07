@@ -12,6 +12,10 @@ const Users = (props) => {
 
     }
 
+
+    let viewUser = () => {
+        return props.users.map(u => <User key={u.id} u={u} unfollow={props.unfollow} folllow={props.follow} />)
+    }
     return (
         <div>
             {props.users.map(u => <div key={u.id}>

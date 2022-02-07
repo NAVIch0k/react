@@ -5,16 +5,13 @@ import Navbar from './Navbar';
 
 let map_state_to_props=(state)=>{
     return{
-        friends:state.navbar.navbar_friends,
-        but:state.navbar.but
+        friends:state.navbar.navbar_friends
     }
 }
 
 let map_dispatch_to_props=(dispatch)=>{
     return{
-        butclick:(text)=>{
-            dispatch(rename_AC(text))
-        }
+        
     }
 }
 

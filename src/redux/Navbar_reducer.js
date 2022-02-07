@@ -4,8 +4,7 @@ let initial_state = {
         { name: "Leon" },
         { name: "Kesadi" },
         { name: "Adam" }
-    ],
-    but:1
+    ]
 }
 
 const Navbar_reducer = (state=initial_state, action) => {
