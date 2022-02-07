@@ -9,7 +9,6 @@ let initial_state = {
 }
 
 const Navbar_reducer = (state=initial_state, action) => {
-    debugger
     switch (action.type) {
         case RENAME:
             return{
