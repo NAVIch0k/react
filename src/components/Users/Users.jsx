@@ -3,10 +3,8 @@ import React from 'react'
 import User from './User/User'
 
 class Users extends React.Component {
-
-  constructor (props) {
-    super(props)
-
+  
+  componentDidMount(){
     if (this.props.users.length < 1) axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${(this.props.users.length + 10) / 10}`).then(Response => {
       this.props.set_users(Response.data.items)
     })

@@ -3,9 +3,6 @@ import s from './User.module.css'
 import user_photo from './../../../img/logo.png'
 
 class User extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <div>
