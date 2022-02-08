@@ -2,25 +2,22 @@ import axios from 'axios'
 import React from 'react'
 import User from './User/User'
 
-const Users = (props) => {
+class UserC extends React.Component {
 
-    let get_users = () => {
+  get_users = () => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${(this.props.users.length + 10) / 10}`).then(Response => {
+      this.props.set_users(Response.data.items)
+    })
+  }
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${(props.users.length + 10) / 10}`).then(Response => {
-            props.set_users(Response.data.items)
-        })
-    }
-
-    let viewUser = () => {
-        return props.users.map(u => <User key={u.id} u={u} unfollow={props.unfollow} follow={props.follow} />)
-    }
-
+  render() {
     return (
-        <div>
-            {viewUser()}
-            <button onClick={get_users}>Get Users</button>
-        </div>
+      <div>
+        <button onClick={this.get_users}>Get Users</button>
+        {this.props.users.map(u => <User key={u.id} u={u} unfollow={this.props.unfollow} follow={this.props.follow} />)}
+      </div>
     )
+  }
 }
 
-export default Users
+export default UserC
