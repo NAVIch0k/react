@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import Dialogs_cont from './components/Dialogs/Dialogs_cont.jsx';
 import Header from './components/Header/Header.jsx';
-import Profile from './components/Profile/Profile.jsx';
 import { Route, Routes } from 'react-router-dom';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Users_cont from './components/Users/Users_cont';
 import Navbar_cont from './components/Navbar/Navbar_cont';
+import Profile_cont from './components/Profile/Profile_cont';
 
 const App = (props) => {
   return (
@@ -18,7 +18,7 @@ const App = (props) => {
       <div className='content'>
         <Routes>
           <Route path='/dialogs/*' element={<Dialogs_cont/>} />
-          <Route path='/profile/*' element={<Profile/>} />
+          <Route path='/profile/*' element={<Profile_cont/>} />
           <Route path='/news/*' element={<News />} />
           <Route path='/settings/*' element={<Settings />} />
           <Route path='/music/*' element={<Music />} />
