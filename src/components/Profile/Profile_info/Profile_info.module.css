@@ -1,4 +1,8 @@
-.content_img{
+.profile{
+    margin-bottom: 20px;
+}
+
+.profile_img{
     border-radius: 5px;
     background-image: url(../../../img/bg.jpg);
     background-size: cover;
@@ -7,6 +11,26 @@
     background-position:0vh;
     background-repeat: no-repeat;
 }
+
 .profile_info{
-    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.profile_info_img{
+    margin-right: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.profile_info_about h2,p{
+    margin: 0;
+}
+.profile_info_about h2{
+    margin-bottom: 10px;
+}
+
+.profile_info_about p{
+    font-size: 18px;
+    line-height: 21px;
 }
