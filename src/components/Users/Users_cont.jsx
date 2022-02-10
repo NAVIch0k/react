@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow_AC, set_current_page_AC, set_is_fetching_AC, set_total_count_user_AC, set_users_AC, unfollow_AC } from '../../redux/Users_reducer';
+import { follow, set_current_page, set_is_fetching, set_total_count_user, set_users, unfollow } from '../../redux/Users_reducer';
 import Preloader from '../Common/Preloader/Preloader';
 import Users from './Users';
 
@@ -52,29 +52,15 @@ let map_state_to_props = (state) => {
   }
 }
 
-let map_dispatch_to_props = (dispatch) => {
-  return {
-    follow: (user_id) => {
-      dispatch(follow_AC(user_id))
-    },
-    unfollow: (user_id) => {
-      dispatch(unfollow_AC(user_id))
-    },
-    set_users: (users) => {
-      dispatch(set_users_AC(users))
-    },
-    set_current_page: (num_page) => {
-      dispatch(set_current_page_AC(num_page))
-    },
-    set_total_count_user: (count) => {
-      dispatch(set_total_count_user_AC(count))
-    },
-    set_is_fetching:(is_fetch)=>{
-      dispatch(set_is_fetching_AC(is_fetch))
-    }
+
+
+export default connect(map_state_to_props, 
+  {
+    follow,
+    unfollow,
+    set_users,
+    set_current_page,
+    set_total_count_user,
+    set_is_fetching
   }
-}
-
-
-
-export default connect(map_state_to_props, map_dispatch_to_props)(Users_api_component)
+  )(Users_api_component)

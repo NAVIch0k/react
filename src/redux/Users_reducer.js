@@ -49,16 +49,16 @@ const Users_reducer = (state=initial_state, action) => {
     }
 }
 
-export const follow_AC=(user_id)=>({type:FOLLOW,user_id})
+export const follow=(user_id)=>({type:FOLLOW,user_id})
 
-export const unfollow_AC=(user_id)=>({type:UNFOLLOW,user_id})
+export const unfollow=(user_id)=>({type:UNFOLLOW,user_id})
 
-export const set_users_AC=(users)=>({type:SET_USERS,users})
+export const set_users=(users)=>({type:SET_USERS,users})
 
-export const set_current_page_AC=(current_page)=>({type:CURRENT_PAGE,current_page})
+export const set_current_page=(current_page)=>({type:CURRENT_PAGE,current_page})
 
-export const set_total_count_user_AC=(count)=>({type:TOTAL_COUNT_USER,count})
+export const set_total_count_user=(count)=>({type:TOTAL_COUNT_USER,count})
 
-export const set_is_fetching_AC=(is_fetching)=>({type:TOGGLE_IS_FETCHING,is_fetching})
+export const set_is_fetching=(is_fetching)=>({type:TOGGLE_IS_FETCHING,is_fetching})
 
 export default Users_reducer
