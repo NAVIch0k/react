@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import { follow_AC, set_current_page_AC, set_is_fetching_AC, set_total_count_user_AC, set_users_AC, unfollow_AC } from '../../redux/Users_reducer';
+import Preloader from '../Common/Preloader/Preloader';
 import Users from './Users';
-import loader from '../../img/loader.gif'
 
 class Users_api_component extends React.Component {
 
@@ -28,7 +28,7 @@ class Users_api_component extends React.Component {
 
   render() {
     return <>
-      {this.props.is_fetching ? <img src={loader} /> : null}
+      {this.props.is_fetching ? <Preloader/> : null}
       <Users
         current_page={this.props.current_page}
         total_count={this.props.total_count}
