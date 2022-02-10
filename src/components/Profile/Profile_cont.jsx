@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
 import { set_user_profile } from '../../redux/Profile_reducer'
+import { withRouter } from 'react-router-dom';
 class Profile_cont extends React.Component {
 
     componentDidMount() {
@@ -22,4 +23,6 @@ let map_state_to_props = (state) => ({
     profile: state.profile_page.profile
 })
 
-export default connect(map_state_to_props, { set_user_profile })(Profile_cont);
+let With_url_data_cont_comp = withRouter(Profile_cont)
+
+export default connect(map_state_to_props, { set_user_profile })(With_url_data_cont_comp);

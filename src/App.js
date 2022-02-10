@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Dialogs_cont from './components/Dialogs/Dialogs_cont.jsx';
 import Header from './components/Header/Header.jsx';
-import { Route, Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
@@ -16,14 +16,12 @@ const App = (props) => {
       <Header />
       <Navbar_cont />
       <div className='content'>
-        <Routes>
-          <Route path='/dialogs/*' element={<Dialogs_cont/>} />
-          <Route path='/profile/*' element={<Profile_cont/>} />
-          <Route path='/news/*' element={<News />} />
-          <Route path='/settings/*' element={<Settings />} />
-          <Route path='/music/*' element={<Music />} />
-          <Route path='/users/*' element={<Users_cont />} />
-        </Routes>
+        <Route path='/dialogs' render={() => <Dialogs_cont />} />
+        <Route path='/profile' render={() => <Profile_cont />} />
+        <Route path='/news' render={() => <News />} />
+        <Route path='/settings' render={() => <Settings />} />
+        <Route path='/music' render={() => <Music />} />
+        <Route path='/users' render={() => <Users_cont />} />
       </div>
     </div>
   );
