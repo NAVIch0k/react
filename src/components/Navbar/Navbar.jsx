@@ -7,12 +7,12 @@ const Navbar = (props) => {
     )
     return (
         <nav className={s.nav}>
-            <NavLink to='/profile' className={navData => (navData.isActive ? s.active : "")}>Profile</NavLink>
-            <NavLink to='/dialogs' className={navData => (navData.isActive ? s.active : "")}>Messages</NavLink>
-            <NavLink to='/news' className={navData => (navData.isActive ? s.active : "")}>News</NavLink>
-            <NavLink to='/music' className={navData => (navData.isActive ? s.active : "")}>Music</NavLink>
-            <NavLink to='/settings' className={navData => (navData.isActive ? s.active : "")}>Settings</NavLink>
-            <NavLink to='/users' className={navData => (navData.isActive ? s.active : "")}>Users</NavLink>
+            <NavLink activeClassName={s.active} to='/profile'>Profile</NavLink>
+            <NavLink activeClassName={s.active} to='/dialogs' className={({isActive}) => isActive ? s.active : ""}>Messages</NavLink>
+            <NavLink activeClassName={s.active} to='/news' className={({isActive}) => isActive ? s.active : ""}>News</NavLink>
+            <NavLink activeClassName={s.active} to='/music' className={({isActive}) => isActive ? s.active : ""}>Music</NavLink>
+            <NavLink activeClassName={s.active} to='/settings' className={({isActive}) => isActive ? s.active : ""}>Settings</NavLink>
+            <NavLink activeClassName={s.active} to='/users' className={({isActive}) => isActive ? s.active : ""}>Users</NavLink>
             <h3>Friends</h3>
             <div className={s.nav_friends}>
                 <div className={s.nav_friend}>
