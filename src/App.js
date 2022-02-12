@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Dialogs_cont from './components/Dialogs/Dialogs_cont.jsx';
-import Header from './components/Header/Header.jsx';
 import { Route } from 'react-router-dom';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
@@ -9,11 +8,12 @@ import Music from './components/Music/Music';
 import Users_cont from './components/Users/Users_cont';
 import Navbar_cont from './components/Navbar/Navbar_cont';
 import Profile_cont from './components/Profile/Profile_cont';
+import Header_cont from './components/Header/Header_cont';
 
 const App = (props) => {
   return (
     <div className='page'>
-      <Header />
+      <Header_cont />
       <Navbar_cont />
       <div className='content'>
         <Route path='/dialogs' render={() => <Dialogs_cont />} />
