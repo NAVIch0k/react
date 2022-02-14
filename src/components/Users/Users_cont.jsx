@@ -9,7 +9,7 @@ class Users_api_component extends React.Component {
 
   componentDidMount() {
     this.props.set_is_fetching(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.current_page}&count=${this.props.page_size}`).then(Response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.current_page}&count=${this.props.page_size}`,{withCredentials: true}).then(Response => {
       this.props.set_users(Response.data.items)
       this.props.set_total_count_user(Response.data.totalCount)
       this.props.set_is_fetching(false)
@@ -19,7 +19,7 @@ class Users_api_component extends React.Component {
 
   on_page_changed = (el) => {
     this.props.set_is_fetching(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.page_size}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.page_size}`,{withCredentials: true}).then(response => {
       this.props.set_is_fetching(false)
       this.props.set_users(response.data.items) 
     })
