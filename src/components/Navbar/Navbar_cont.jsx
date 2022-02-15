@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { rename_AC } from '../../redux/Navbar_reducer';
 import Navbar from './Navbar';
 
 let map_state_to_props=(state)=>{
