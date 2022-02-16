@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import Profile from './Profile';
 import { set_user_profile } from '../../redux/Profile_reducer'
 import { withRouter } from 'react-router-dom';
-import { profile_info } from '../../API/API';
+import { Profile_API } from '../../API/API';
 class Profile_cont extends React.Component {
 
     componentDidMount() {
         let user_id=this.props.match.params.user_id
         if(!user_id){user_id=2}
-        profile_info(user_id).then(Response => {
+        Profile_API.profile_info(user_id).then(Response => {
             this.props.set_user_profile(Response)
         })
     }

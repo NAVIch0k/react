@@ -1,7 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { get_users } from '../../API/API';
+import { Users_API } from '../../API/API';
 import { follow, set_current_page, set_is_fetching, set_total_count_user, set_users, unfollow } from '../../redux/Users_reducer';
 import Preloader from '../Common/Preloader/Preloader';
 import Users from './Users';
@@ -10,7 +9,7 @@ class Users_api_component extends React.Component {
 
   componentDidMount() {
     this.props.set_is_fetching(true)
-    get_users(this.props.current_page,this.props.page_size).then(Response => {
+    Users_API.get_users(this.props.current_page,this.props.page_size).then(Response => {
       this.props.set_users(Response.items)
       this.props.set_total_count_user(Response.totalCount)
       this.props.set_is_fetching(false)
@@ -19,7 +18,7 @@ class Users_api_component extends React.Component {
 
   on_page_changed = (el) => {
     this.props.set_is_fetching(true)
-    get_users(el,this.props.page_size).then(response => {
+    Users_API.get_users(el,this.props.page_size).then(response => {
       this.props.set_is_fetching(false)
       this.props.set_users(response.items) 
     })
