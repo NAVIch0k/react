@@ -11,7 +11,7 @@ const Users = (props) => {
     return (
         <div>
             {pages.map(el => <span key={el} className={props.current_page === el ? s.active : ""} onClick={() => { props.on_page_changed(el) }}>{el}</span>)}
-            {props.users.map(u => <User key={u.id} u={u} unfollow={props.unfollow} follow={props.follow} />)}
+            {props.users.map(u => <User key={u.id} u={u} following_in_progress={props.following_in_progress} is_following={props.is_following} unfollow={props.unfollow} follow={props.follow} />)}
         </div>
     )
 }

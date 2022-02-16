@@ -16,15 +16,19 @@ const User = (props) => {
                 </div>
                 <div>
                     {props.u.followed
-                        ? <button onClick={() => {
+                        ? <button disabled={props.following_in_progress.some(id=>id===props.u.id)} onClick={() => {
+                            props.is_following(true,props.u.id)
                             Subscribe_API.unfollow(props.u.id).then(Response => {
+                                props.is_following(false,props.u.id)
                                 if (Response.resultCode === 0) {
                                     props.unfollow(props.u.id)
                                 }
                             })
                         }}>unfollow</button>
-                        : <button onClick={() => {
+                        : <button disabled={props.following_in_progress.some(id=>id===props.u.id)} onClick={() => {
+                            props.is_following(true,props.u.id)
                             Subscribe_API.follow(props.u.id).then(Response => {
+                                props.is_following(false,props.u.id)
                                 if (Response.resultCode === 0) {
                                     props.follow(props.u.id)
                                 }
