@@ -2,7 +2,6 @@ import React from 'react';
 import s from './User.module.css'
 import user_photo from './../../../img/logo.png'
 import { NavLink } from 'react-router-dom';
-import { Subscribe_API } from '../../../API/API'
 
 
 const User = (props) => {
@@ -17,22 +16,10 @@ const User = (props) => {
                 <div>
                     {props.u.followed
                         ? <button disabled={props.following_in_progress.some(id=>id===props.u.id)} onClick={() => {
-                            props.is_following(true,props.u.id)
-                            Subscribe_API.unfollow(props.u.id).then(Response => {
-                                props.is_following(false,props.u.id)
-                                if (Response.resultCode === 0) {
-                                    props.unfollow(props.u.id)
-                                }
-                            })
+                            props.fol_unfol(props.u.id,false)
                         }}>unfollow</button>
                         : <button disabled={props.following_in_progress.some(id=>id===props.u.id)} onClick={() => {
-                            props.is_following(true,props.u.id)
-                            Subscribe_API.follow(props.u.id).then(Response => {
-                                props.is_following(false,props.u.id)
-                                if (Response.resultCode === 0) {
-                                    props.follow(props.u.id)
-                                }
-                            })
+                            props.fol_unfol(props.u.id,true)
                         }}>follow</button>
                     }
                 </div>

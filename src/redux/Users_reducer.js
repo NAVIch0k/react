@@ -1,4 +1,4 @@
-import { Users_API } from "../API/API"
+import { Subscribe_API, Users_API } from "../API/API"
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -41,7 +41,7 @@ const Users_reducer = (state = initial_state, action) => {
                 })
             }
         case SET_USERS:
-            return { ...state, users: action.users }
+            return { ...state, users:action.users }
         case CURRENT_PAGE:
             return { ...state, current_page: action.current_page }
         case TOTAL_COUNT_USER:
@@ -74,14 +74,37 @@ export const set_is_fetching = (is_fetching) => ({ type: TOGGLE_IS_FETCHING, is_
 
 export const set_is_following = (is_following, id) => ({ type: TOGGLE_IN_PROGRESS, is_following, id })
 
-export const get_users = (current_page,page_size) => {
-    return (dispatch)=>{
+export const get_users = (current_page, page_size) => {
+    return (dispatch) => {
         dispatch(set_is_fetching(true))
         Users_API.get_users(current_page, page_size).then(Response => {
             dispatch(set_users(Response.items))
             dispatch(set_total_count_user(Response.totalCount))
-            dispatch(set_is_fetching(false))    
+            dispatch(set_is_fetching(false))
         })
+    }
+}
+
+export const fol_unfol = (id, subscribe) => {
+    return (dispatch) => {
+        if (subscribe) {
+            dispatch(set_is_following(true, id))
+            Subscribe_API.follow(id).then(Response => {
+                if (Response.resultCode === 0) {
+                    dispatch(set_is_following(false, id))
+                    dispatch(follow(id))
+                }
+            })
+        } else {
+            dispatch(set_is_following(true, id))
+            Subscribe_API.unfollow(id).then(Response => {
+                if (Response.resultCode === 0) {
+                    dispatch(set_is_following(false, id))
+                    dispatch(unfollow(id))
+                }
+            })
+        }
+
     }
 }
 

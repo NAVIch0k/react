@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Users_API } from '../../API/API';
-import { set_is_following, follow, set_current_page, unfollow, get_users } from '../../redux/Users_reducer';
+import { connect } from 'react-redux'; 
+import { set_current_page, get_users, fol_unfol } from '../../redux/Users_reducer';
 import Preloader from '../Common/Preloader/Preloader';
 import Users from './Users';
 
 class Users_api_component extends React.Component {
-
   componentDidMount() {
     this.props.get_users(this.props.current_page,this.props.page_size)
   }
@@ -24,11 +22,9 @@ class Users_api_component extends React.Component {
         total_count={this.props.total_count}
         page_size={this.props.page_size}
         users={this.props.users}
-        unfollow={this.props.unfollow}
-        follow={this.props.follow}
         on_page_changed={this.on_page_changed}
-        is_following={this.props.set_is_following}
         following_in_progress={this.props.following_in_progress}
+        fol_unfol={this.props.fol_unfol}
       />
     </>
   }
@@ -49,10 +45,8 @@ let map_state_to_props = (state) => {
 
 export default connect(map_state_to_props, 
   {
-    follow,
-    unfollow,
     set_current_page,
-    set_is_following,
-    get_users
+    get_users,
+    fol_unfol
   }
   )(Users_api_component)
