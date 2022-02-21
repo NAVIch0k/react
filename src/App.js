@@ -9,8 +9,10 @@ import Users_cont from './components/Users/Users_cont';
 import Navbar_cont from './components/Navbar/Navbar_cont';
 import Profile_cont from './components/Profile/Profile_cont';
 import Header_cont from './components/Header/Header_cont';
+import Login from './components/Login/Login';
 
 const App = (props) => {
+  console.log(props);
   return (
     <div className='page'>
       <Header_cont />
@@ -22,6 +24,7 @@ const App = (props) => {
         <Route path='/settings' render={() => <Settings />} />
         <Route path='/music' render={() => <Music />} />
         <Route path='/users' render={() => <Users_cont />} />
+        <Route path='/login' render={() => <Login/>} />
       </div>
     </div>
   );

@@ -25,7 +25,6 @@ export const set_auth_user_data=(id,email,login)=>({type:SET_USER_DATA,data:{id,
 export const header_info_API=()=>{
     return(dispatch)=>{
         header_info().then(Response => {
-            debugger
             let {id,email,login}=Response.data.data
             if (Response.data.resultCode === 0) {
                 dispatch(set_auth_user_data(id, email, login))

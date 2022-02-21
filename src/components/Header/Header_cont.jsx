@@ -5,7 +5,6 @@ import Header from './Header';
 class Header_cont extends React.Component {
 
     componentDidMount() {
-        debugger
         this.props.header_info_API()
     }
 

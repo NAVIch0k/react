@@ -5,7 +5,8 @@ import Dialogs from './Dialogs';
 
 let map_state_to_props=(state)=>{
     return{
-        dialog_page:state.dialog_page
+        dialog_page:state.dialog_page,
+        is_auth:state.auth.is_auth
     }
 }
 
