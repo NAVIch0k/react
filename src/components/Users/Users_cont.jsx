@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
+import { compose } from 'redux';
 import { set_current_page, get_users, fol_unfol } from '../../redux/Users_reducer';
 import Preloader from '../Common/Preloader/Preloader';
 import { WithAuthRedirect } from '../HOC/WithAuthRedirecr';
@@ -46,10 +47,13 @@ let map_state_to_props = (state) => {
 
 
 
-export default WithAuthRedirect(connect(map_state_to_props, 
-  {
-    set_current_page,
-    get_users,
-    fol_unfol
-  }
-  )(Users_api_component))
+export default compose(
+    WithAuthRedirect,
+    connect(map_state_to_props, 
+      {
+        set_current_page,
+        get_users,
+        fol_unfol
+      }
+      )
+  )(Users_api_component)
