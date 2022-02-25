@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import { set_current_page, get_users, fol_unfol } from '../../redux/Users_reducer';
 import Preloader from '../Common/Preloader/Preloader';
+import { WithAuthRedirect } from '../HOC/WithAuthRedirecr';
 import Users from './Users';
 
 class Users_api_component extends React.Component {
@@ -30,6 +31,8 @@ class Users_api_component extends React.Component {
   }
 }
 
+
+
 let map_state_to_props = (state) => {
   return {
     users: state.user_page.users,
@@ -43,10 +46,10 @@ let map_state_to_props = (state) => {
 
 
 
-export default connect(map_state_to_props, 
+export default WithAuthRedirect(connect(map_state_to_props, 
   {
     set_current_page,
     get_users,
     fol_unfol
   }
-  )(Users_api_component)
+  )(Users_api_component))
