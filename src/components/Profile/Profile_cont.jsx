@@ -13,9 +13,26 @@ class Profile_cont extends React.Component {
         this.props.get_user_profile(user_id)
     }
 
+    state={
+        edit_mode:false,
+        status:"okey"
+    }
+
+    active_edit_mode=()=>{
+        this.setState({
+            edit_mode:true
+        })
+    }
+
+    deactive_edit_mode=()=>{
+        this.setState({
+            edit_mode:false
+        })
+    }
+
     render() {
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <Profile active_edit_mode={this.active_edit_mode} deactive_edit_mode={this.deactive_edit_mode} profile={this.props.profile} state={this.state}/>
         )
     }
 }

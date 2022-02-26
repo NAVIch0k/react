@@ -12,7 +12,6 @@ import Header_cont from './components/Header/Header_cont';
 import Login from './components/Login/Login';
 
 const App = (props) => {
-  console.log(props);
   return (
     <div className='page'>
       <Header_cont />

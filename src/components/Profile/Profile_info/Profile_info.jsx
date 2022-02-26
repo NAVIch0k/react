@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Profile_info.module.css';
 import Preloader from '../../Common/Preloader/Preloader'
 const Profile_info = (props) => {
-
     if(!props.profile){
         return <Preloader/>
     }
@@ -14,8 +13,10 @@ const Profile_info = (props) => {
                 <img className={s.profile_info_img} src={props.profile.photos.small}/>
                 <div className={s.profile_info_about}>
                     <h2>{props.profile.fullName}</h2>
-                    <span>{props.status}</span>
-                    <input type="text" value={props.status} />
+                    {props.state.edit_mode
+                        ?<input type="text" autoFocus={true} value={props.state.status} onBlur={props.deactive_edit_mode}/>
+                        :<span onDoubleClick={props.active_edit_mode}>{props.state.status}</span>
+                    }
                     <p>{props.profile.aboutMe}</p>
                     <p>{props.profile.lookingForAJobDescription}</p>
                     <p>{props.profile.contacts.vk}</p>
