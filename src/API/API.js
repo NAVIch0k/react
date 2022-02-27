@@ -13,6 +13,12 @@ export const Users_API = {
 export const Profile_API = {
     profile_info(user_id) {
         return instance.get(`profile/` + user_id).then(Response => Response.data)
+    },
+    get_status(user_id){
+        return instance.get(`profile/status/` + user_id)
+    },
+    update_status(status){
+        return instance.put(`profile/status/`,{status})
     }
 }
 

@@ -5,7 +5,7 @@ const Profile_info = (props) => {
     if(!props.profile){
         return <Preloader/>
     }
-
+    console.log(props);
     return (
         <div className={s.profile}>
             <div className={s.profile_img}></div>
