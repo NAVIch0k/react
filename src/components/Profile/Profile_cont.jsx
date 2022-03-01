@@ -9,13 +9,15 @@ class Profile_cont extends React.Component {
 
     componentDidMount() {
         let user_id = this.props.match.params.user_id
-        if (!user_id) { user_id = 2 }
+        if (!user_id) { user_id = 22420 }
         this.props.get_user_profile(user_id)
         this.props.get_user_status(user_id)
     }
+    
 
     state = {
-        edit_mode: false
+        edit_mode: false,
+        status: this.props.status
     }
 
     active_edit_mode = () => {
@@ -28,11 +30,26 @@ class Profile_cont extends React.Component {
         this.setState({
             edit_mode: false
         })
+        this.props.update_user_status(this.state.status)
+    }
+
+    on_status_change=(e)=>{
+        this.setState({
+            status: e.currentTarget.value
+        })
+    }
+
+    componentDidUpdate(prev_props,prev_state){
+        if(prev_props.status!==this.props.status){
+            this.setState({
+                status: this.props.status
+            })
+        }
     }
 
     render() {
         return (
-            <Profile update_status={this.props.update_user_status} active_edit_mode={this.active_edit_mode} deactive_edit_mode={this.deactive_edit_mode} profile={this.props.profile} state={this.state} status={this.props.status} />
+            <Profile on_status_change={this.on_status_change} update_status={this.props.update_user_status} active_edit_mode={this.active_edit_mode} deactive_edit_mode={this.deactive_edit_mode} profile={this.props.profile} state={this.state}/>
         )
     }
 }

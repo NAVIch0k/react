@@ -5,7 +5,6 @@ const Profile_info = (props) => {
     if(!props.profile){
         return <Preloader/>
     }
-    console.log(props);
     return (
         <div className={s.profile}>
             <div className={s.profile_img}></div>
@@ -14,7 +13,7 @@ const Profile_info = (props) => {
                 <div className={s.profile_info_about}>
                     <h2>{props.profile.fullName}</h2>
                     {props.state.edit_mode
-                        ?<input type="text" autoFocus={true} value={props.state.status} onBlur={props.deactive_edit_mode}/>
+                        ?<input onChange={props.on_status_change} type="text" autoFocus={true} value={props.state.status} onBlur={props.deactive_edit_mode}/>
                         :<span onDoubleClick={props.active_edit_mode}>{props.state.status}</span>
                     }
                     <p>{props.profile.aboutMe}</p>
