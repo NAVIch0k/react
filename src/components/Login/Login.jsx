@@ -7,7 +7,7 @@ const Login = (props) => {
         <div className={s.auth}>
             <h1>Login</h1>
             <form onSubmit={props.handleSubmit}>
-                <Field name={'login'} placeholder='login' component={'input'}/>
+                <Field name={'email'} placeholder='email' component={'input'}/>
                 <Field name={'password'} placeholder='password'component={'input'}/>
                 <div>
                     <Field name={'remember_me'} component={'input'} type="checkbox"/>

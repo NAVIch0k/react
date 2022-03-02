@@ -33,3 +33,8 @@ export const Subscribe_API = {
         return instance.post(`follow/${id}`).then(Response => Response.data)
     }
 }
+
+export const login=(login)=>{
+    let {email,password,rememverMe}=login
+    return instance.post(`auth/login`,{email,password,rememverMe}).then(Response=>Response)
+}
