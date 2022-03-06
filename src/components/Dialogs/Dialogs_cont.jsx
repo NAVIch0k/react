@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { add_message_creater, on_message_change_creater } from '../../redux/Dialog_reducer';
+import { add_message_creater } from '../../redux/Dialog_reducer';
 import { WithAuthRedirect } from '../HOC/WithAuthRedirecr';
 import Dialogs from './Dialogs';
 
@@ -13,11 +13,8 @@ let map_state_to_props=(state)=>{
 
 let map_dispatch_to_props=(dispatch)=>{
     return{
-        add_message:()=>{
-            dispatch(add_message_creater())
-        },
-        update_message:(e)=>{
-            dispatch(on_message_change_creater(e))
+        add_message:(new_message)=>{
+            dispatch(add_message_creater(new_message))
         }
     }
 }

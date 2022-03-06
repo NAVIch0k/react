@@ -1,22 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { add_post_creater, on_post_change_creater } from '../../../redux/Profile_reducer';
+import { add_post_creater} from '../../../redux/Profile_reducer';
 import MyPost from './MyPost';
 
 let map_state_to_props=(state)=>{
     return{
-        new_post:state.profile_page.new_post_text,
         posts:state.profile_page.posts
     }
 }
 
 let map_dispatch_to_props=(dispatch)=>{
     return{
-        update_new_post:(text)=>{
-            dispatch(on_post_change_creater(text))
-        },
-        add_post:()=>{
-            dispatch(add_post_creater())
+        add_post:(profile_post_text)=>{
+            dispatch(add_post_creater(profile_post_text))
         }
     }
 }

@@ -11,9 +11,7 @@ class Login_cont extends React.Component {
     }
 
     render() {
-        debugger
         if (!!this.props.id) {
-            debugger
             return <Redirect to='/profile'/>
         }
 
