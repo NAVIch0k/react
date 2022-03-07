@@ -16,7 +16,6 @@ const Auth_reducer = (state=initial_state, action) => {
             return{...state,...action.data,is_auth:true}
         }
         case LOGIN:{
-            debugger
             return{...state,...action.data.id,is_auth:true}
         }
         default:
