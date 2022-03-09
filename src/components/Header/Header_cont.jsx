@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { header_info_API } from '../../redux/Auth_reducer'
+import { header_info_API,logout_API } from '../../redux/Auth_reducer'
 import Header from './Header';
 class Header_cont extends React.Component {
 
@@ -13,7 +13,7 @@ class Header_cont extends React.Component {
     }
 
     render() {
-        return <Header {...this.props} />
+        return <Header {...this.props}  />
     }
 }
 
@@ -24,4 +24,4 @@ const map_dispatch_to_state = (state) => {
     }
 }
 
-export default connect(map_dispatch_to_state, { header_info_API })(Header_cont);
+export default connect(map_dispatch_to_state, { header_info_API,logout_API })(Header_cont);

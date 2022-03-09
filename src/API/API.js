@@ -14,11 +14,11 @@ export const Profile_API = {
     profile_info(user_id) {
         return instance.get(`profile/` + user_id).then(Response => Response.data)
     },
-    get_status(user_id){
+    get_status(user_id) {
         return instance.get(`profile/status/` + user_id)
     },
-    update_status(status){
-        return instance.put(`profile/status/`,{status})
+    update_status(status) {
+        return instance.put(`profile/status/`, { status })
     }
 }
 
@@ -34,7 +34,12 @@ export const Subscribe_API = {
     }
 }
 
-export const login=(login)=>{
-    let {email,password,rememverMe}=login
-    return instance.post(`auth/login`,{email,password,rememverMe}).then(Response=>Response)
+export const auth={
+    login(login){
+        let { email, password, rememverMe } = login
+        return instance.post(`auth/login`, { email, password, rememverMe }).then(Response => Response)
+    },
+    logout(){
+        return instance.delete(`auth/login`).then(Response => Response)
+    }
 }
