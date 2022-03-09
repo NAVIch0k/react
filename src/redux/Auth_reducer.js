@@ -1,7 +1,7 @@
+import { stopSubmit } from "redux-form"
 import { header_info, auth } from "../API/API"
 
 const SET_USER_DATA = 'SET_USER_DATA'
-const LOGIN = 'LOGIN'
 
 let initial_state = {
     id: null,
@@ -29,6 +29,8 @@ export const login_API = (data) => {
         auth.login(data).then(Response => {
             if (Response.data.resultCode === 0) {
                 dispatch(set_auth_user_data(Response.data.data.userId))
+            }else{
+                dispatch(stopSubmit('login',{error:Response.messages[0]}))
             }
         })
     }
