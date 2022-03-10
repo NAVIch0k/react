@@ -8,6 +8,7 @@ import style from '../Common/Forms_control/Forms_controls.module.css'
 const Input=Form_control("input")
 
 const Login = (props) => {
+    console.log(props);
     return (
         <div className={s.auth}>
             <h1>Login</h1>

@@ -30,7 +30,7 @@ export const login_API = (data) => {
             if (Response.data.resultCode === 0) {
                 dispatch(set_auth_user_data(Response.data.data.userId))
             }else{
-                dispatch(stopSubmit('login',{error:Response.messages[0]}))
+                dispatch(stopSubmit('login',{_error:Response.data.messages[0]}))
             }
         })
     }
