@@ -21,7 +21,7 @@ const Auth_reducer = (state = initial_state, action) => {
 }
 
 
-const set_auth_user_data = (id, email, login, is_auth=true) => ({ type: SET_USER_DATA, data: { id, email, login, is_auth } })
+const set_auth_user_data = (id, email, login, is_auth = true) => ({ type: SET_USER_DATA, data: { id, email, login, is_auth } })
 
 
 export const login_API = (data) => {
@@ -29,8 +29,8 @@ export const login_API = (data) => {
         auth.login(data).then(Response => {
             if (Response.data.resultCode === 0) {
                 dispatch(set_auth_user_data(Response.data.data.userId))
-            }else{
-                dispatch(stopSubmit('login',{_error:Response.data.messages[0]}))
+            } else {
+                dispatch(stopSubmit('login', { _error: Response.data.messages[0] }))
             }
         })
     }
@@ -46,15 +46,14 @@ export const logout_API = () => {
     }
 }
 
-export const header_info_API = () => {
-    return (dispatch) => {
-        header_info().then(Response => {
-            if (Response.data.resultCode === 0) {
-                let { id, email, login } = Response.data.data
-                dispatch(set_auth_user_data(id, email, login))
-            }
-        })
-    }
+export const header_info_API = () => (dispatch) => {
+    return header_info().then(Response => {
+        if (Response.data.resultCode === 0) {
+            let { id, email, login } = Response.data.data
+            dispatch(set_auth_user_data(id, email, login))
+        }
+    })
 }
+
 
 export default Auth_reducer

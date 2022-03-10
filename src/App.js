@@ -10,24 +10,36 @@ import Navbar_cont from './components/Navbar/Navbar_cont';
 import Profile_cont from './components/Profile/Profile_cont';
 import Header_cont from './components/Header/Header_cont';
 import Login_cont from './components/Login/Login_cont';
+import { connect } from 'react-redux';
+import { initialize_app } from './redux/App_reducer'
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 
-const App = (props) => {
+class App extends React.Component {
 
-  return (
-    <div className='page'>
-      <Header_cont />
-      <Navbar_cont />
-      <div className='content'>
-        <Route path='/dialogs' render={() => <Dialogs_cont />} />
-        <Route path='/profile/:user_id?' render={() => <Profile_cont />} />
-        <Route path='/news' render={() => <News />} />
-        <Route path='/settings' render={() => <Settings />} />
-        <Route path='/music' render={() => <Music />} />
-        <Route path='/users' render={() => <Users_cont />} />
-        <Route path='/login' render={() => <Login_cont/>} />
+  componentDidMount() {
+    this.props.initialize_app()
+  }
+
+  render() {
+    return (
+      <div className='page'>
+        <Header_cont />
+        <Navbar_cont />
+        <div className='content'>
+          <Route path='/dialogs' render={() => <Dialogs_cont />} />
+          <Route path='/profile/:user_id?' render={() => <Profile_cont />} />
+          <Route path='/news' render={() => <News />} />
+          <Route path='/settings' render={() => <Settings />} />
+          <Route path='/music' render={() => <Music />} />
+          <Route path='/users' render={() => <Users_cont />} />
+          <Route path='/login' render={() => <Login_cont />} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
+export default compose(
+  withRouter,
+  connect(null, {initialize_app}))(App)
