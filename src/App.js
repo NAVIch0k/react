@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { initialize_app } from './redux/App_reducer'
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import Preloader from './components/Common/Preloader/Preloader';
 
 class App extends React.Component {
 
@@ -22,6 +23,11 @@ class App extends React.Component {
   }
 
   render() {
+
+    if(!this.props.initialized){
+      return <Preloader/>
+    }
+
     return (
       <div className='page'>
         <Header_cont />
@@ -40,6 +46,10 @@ class App extends React.Component {
   }
 }
 
+const map_state_to_props=(state)=>({
+  initialized:state.app.initialized
+})
+
 export default compose(
   withRouter,
-  connect(null, {initialize_app}))(App)
+  connect(map_state_to_props, {initialize_app}))(App)
