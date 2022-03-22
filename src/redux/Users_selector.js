@@ -1,6 +1,11 @@
+import { createSelector } from "reselect"
+
 export const get_users_sel=(state)=>{
-    return state.user_page.users
+    return state.user_page.users.filter(u=>true)
 }
+export const get_users_super=createSelector(()=>{
+    
+})
 export const get_page_size=(state)=>{
     return state.user_page.page_size
 }

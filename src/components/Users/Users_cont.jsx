@@ -33,19 +33,6 @@ class Users_api_component extends React.Component {
   }
 }
 
-
-
-// let map_state_to_props = (state) => {
-//   return {
-//     users: state.user_page.users,
-//     page_size: state.user_page.page_size,
-//     total_count: state.user_page.total_count_user,
-//     current_page: state.user_page.current_page,
-//     is_fetching: state.user_page.is_fetching,
-//     following_in_progress: state.user_page.following_in_progress
-//   }
-// }
-
 let map_state_to_props = (state) => {
   return {
     users: get_users_sel(state),
