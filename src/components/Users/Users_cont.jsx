@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import { compose } from 'redux';
 import { set_current_page, get_users, fol_unfol } from '../../redux/Users_reducer';
+import { get_current_page, get_following_in_progress, get_is_fetching, get_page_size, get_total_count_user, get_users_sel } from '../../redux/Users_selector';
 import Preloader from '../Common/Preloader/Preloader';
 import { WithAuthRedirect } from '../HOC/WithAuthRedirecr';
 import Users from './Users';
@@ -34,14 +35,25 @@ class Users_api_component extends React.Component {
 
 
 
+// let map_state_to_props = (state) => {
+//   return {
+//     users: state.user_page.users,
+//     page_size: state.user_page.page_size,
+//     total_count: state.user_page.total_count_user,
+//     current_page: state.user_page.current_page,
+//     is_fetching: state.user_page.is_fetching,
+//     following_in_progress: state.user_page.following_in_progress
+//   }
+// }
+
 let map_state_to_props = (state) => {
   return {
-    users: state.user_page.users,
-    page_size: state.user_page.page_size,
-    total_count: state.user_page.total_count_user,
-    current_page: state.user_page.current_page,
-    is_fetching: state.user_page.is_fetching,
-    following_in_progress: state.user_page.following_in_progress
+    users: get_users_sel(state),
+    page_size: get_page_size(state),
+    total_count: get_total_count_user(state),
+    current_page: get_current_page(state),
+    is_fetching: get_is_fetching(state),
+    following_in_progress: get_following_in_progress(state)
   }
 }
 
