@@ -7,7 +7,6 @@ import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Users_cont from './components/Users/Users_cont';
 import Navbar_cont from './components/Navbar/Navbar_cont';
-import Profile_cont from './components/Profile/Profile_cont';
 import Header_cont from './components/Header/Header_cont';
 import Login_cont from './components/Login/Login_cont';
 import { connect } from 'react-redux';
@@ -15,6 +14,7 @@ import { initialize_app } from './redux/App_reducer'
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import Preloader from './components/Common/Preloader/Preloader';
+import Profile_cont from './components/Profile/Profile_cont';
 
 class App extends React.Component {
 

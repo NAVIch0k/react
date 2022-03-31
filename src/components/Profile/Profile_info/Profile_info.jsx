@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Profile_info.module.css';
 import Preloader from '../../Common/Preloader/Preloader'
 const Profile_info = (props) => {
+
+    let [edit_mode, set_edit_mode] = useState(false)
+    let [status,set_status]=useState(props.status)
+
+    useEffect(()=>{
+        set_status(props.status)
+    },[props.status])
+
+    const on_status_change=(e)=>{
+        set_status(e.currentTarget.value)
+    }
+
+    const deactive_edit_mode = () => {
+        set_edit_mode(true)
+        props.update_status(status)
+    }
+
     if(!props.profile){
         return <Preloader/>
     }
+
     return (
         <div className={s.profile}>
             <div className={s.profile_img}></div>
@@ -12,9 +30,9 @@ const Profile_info = (props) => {
                 <img className={s.profile_info_img} src={props.profile.photos.small}/>
                 <div className={s.profile_info_about}>
                     <h2>{props.profile.fullName}</h2>
-                    {props.state.edit_mode
-                        ?<input onChange={props.on_status_change} type="text" autoFocus={true} value={props.state.status} onBlur={props.deactive_edit_mode}/>
-                        :<span onDoubleClick={props.active_edit_mode}>{props.state.status}</span>
+                    {edit_mode
+                        ?<input onChange={on_status_change} type="text" autoFocus={true} value={status} onBlur={()=>set_edit_mode(false)}/>
+                        :<span onDoubleClick={deactive_edit_mode}>{status}</span>
                     }
                     <p>{props.profile.aboutMe}</p>
                     <p>{props.profile.lookingForAJobDescription}</p>
