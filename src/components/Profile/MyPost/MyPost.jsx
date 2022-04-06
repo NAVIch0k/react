@@ -6,7 +6,7 @@ import { Form_control} from '../../Common/Forms_control/Forms_controls';
 import s from './MyPost.module.css';
 import Post from './Posts/Post'
 
-const MyPost = (props) => {
+const MyPost = React.memo(props => {
     let Posts_Element = props.posts.map(
         p => <Post text={p.message} key={p.id} like={p.likes_count} />
 
@@ -24,7 +24,7 @@ const MyPost = (props) => {
             </div>
         </div>
     )
-}
+})
 
 const max_length30=max_length_creater(30)
 const Textarea = Form_control("textarea")
